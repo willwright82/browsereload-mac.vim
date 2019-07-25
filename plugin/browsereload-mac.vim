@@ -123,9 +123,16 @@ command! -bar OperaReloadStart OperaReloadStop | autocmd BufWritePost <buffer> O
 command! -bar OperaReloadStop autocmd! BufWritePost <buffer>
 
 " }}}
+" {{{ setting Brave
+
+command! -bar BraveReload call s:Reload("Brave")
+command! -bar BraveReloadStart BraveReloadStop | autocmd BufWritePost <buffer> BraveReload
+command! -bar BraveReloadStop autocmd! BufWritePost <buffer>
+
+" }}}
 " {{{ setting all browser. reload at the same time
 
-command! -bar AllBrowserReload silent OperaReload | SafariReload | FirefoxReload | ChromeReload 
+command! -bar AllBrowserReload silent BraveReload | OperaReload | SafariReload | FirefoxReload | ChromeReload 
 command! -bar AllBrowserReloadStart AllBrowserReloadStop | autocmd BufWritePost <buffer> AllBrowserReload
 command! -bar AllBrowserReloadStop autocmd! BufWritePost <buffer>
 
@@ -180,6 +187,7 @@ browser reload::
  :FirefoxReload     //reload "Firefox"
  :SafariReload      //reload "Safari"
  :OperaReload       //reload "Opera"
+ :BraveReload       //reload "Brave"
  :AllBrowserReload  //reload all browser
 
 start auto reload::
@@ -187,7 +195,8 @@ start auto reload::
  :ChromeReloadStart  
  :FirefoxReloadStart  
  :SafariReloadStart  
- :OperaReloadStart  
+ :OperaReloadStart
+ :BraveReloadStart
  :AllBrowserReloadStart  
 
 stop auto reload::
@@ -196,6 +205,7 @@ stop auto reload::
  :FirefoxReloadStop
  :SafariReloadStop
  :OperaReloadStop
+ :BraveReloadStop
  :AllBrowserReloadStart
 
 
@@ -230,18 +240,21 @@ write this setting in your .vimrc
  command! -bar Fr silent FirefoxReload
  command! -bar Sr silent SafariReload
  command! -bar Or silent OperaReload
+ command! -bar Br silent BraveReload
  command! -bar Ar silent AllBrowserReload
  "auto reload start
  command! -bar CrStart silent ChromeReloadStart
  command! -bar FrStart silent FirefoxReloadStart
  command! -bar SrStart silent SafariReloadStart
  command! -bar OrStart silent OperaReloadStart
+ command! -bar BrStart silent BraveReloadStart
  command! -bar ArStart silent AllBrowserReloadStart
  "auto reload stop
  command! -bar CrStop silent ChromeReloadStop
  command! -bar FrStop silent FirefoxReloadStop
  command! -bar SrStop silent SafariReloadStop
  command! -bar OrStop silent OperaReloadStop
+ command! -bar BrStop silent BraveReloadStop
  command! -bar ArStop silent AllBrowserReloadStop
 
 You can define "reloadPreHook" and "reploadPostHook" commands.
