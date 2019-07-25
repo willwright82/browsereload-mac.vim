@@ -44,6 +44,7 @@ browser reload::
  :FirefoxReload     //reload "Firefox"
  :SafariReload      //reload "Safari"
  :OperaReload       //reload "Opera"
+ :BraveReload       //reload "Brave"
  :AllBrowserReload  //reload all browser
 
 start auto reload::
@@ -51,7 +52,8 @@ start auto reload::
  :ChromeReloadStart  
  :FirefoxReloadStart  
  :SafariReloadStart  
- :OperaReloadStart  
+ :OperaReloadStart
+ :BraveReloadStart
  :AllBrowserReloadStart  
 
 stop auto reload::
@@ -94,18 +96,21 @@ write this setting in your .vimrc
  command! -bar Fr silent FirefoxReload
  command! -bar Sr silent SafariReload
  command! -bar Or silent OperaReload
+ command! -bar Br silent BraveReload
  command! -bar Ar silent AllBrowserReload
  "auto reload start
  command! -bar CrStart silent ChromeReloadStart
  command! -bar FrStart silent FirefoxReloadStart
  command! -bar SrStart silent SafariReloadStart
  command! -bar OrStart silent OperaReloadStart
+ command! -bar BrStart silent BraveReloadStart
  command! -bar ArStart silent AllBrowserReloadStart
  "auto reload stop
  command! -bar CrStop silent ChromeReloadStop
  command! -bar FrStop silent FirefoxReloadStop
  command! -bar SrStop silent SafariReloadStop
  command! -bar OrStop silent OperaReloadStop
+ command! -bar BrStop silent BraveReloadStop
  command! -bar ArStop silent AllBrowserReloadStop
 
 You can define "reloadPreHook" and "reploadPostHook" commands.
